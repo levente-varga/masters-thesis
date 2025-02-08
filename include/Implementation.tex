@@ -1,44 +1,65 @@
 \chapter{Implementation} \label{Chapter:Implementation}
-intro here
 
-\section{Finding genre combinations}
 
-Today's most popular game store on PC, Steam \cite{steam}, which, at the time of writing, has a library of over 204.000 apps, including the majority of modern video games. There are some exceptions, however, as some games are platform-specific and thus have never been released on Steam, but the quantity of such games can only be measured in the hundreds, so they will be considered insignificant for this research.
+This chapter discusses the process of selecting a genre combination to work with.
 
-To categorize this massive amount of content, Steam uses two systems. First, developers and publishers pick from a list of pre-defined genres to assign to their apps during upload. Second, users who download these apps can assign them user-defined tags that can indicate genre, theme, aesthetic or even difficulty, and help other users find new apps that are to their liking. From the user's point of view, only the tags are visible on the apps' dedicated pages while genres are only used as filtering in the store's search field.
 
-Steam has a public API (Application Programming Interface) that can be used to query data about their games and apps. This API, however, is not well-documented, thus it would take a considerable amount of trial-and-error to use it properly. Luckily, a relatively fresh dataset \cite{steamCatalogInsight2024} can be found on GitHub that, according to the author, was acquired in October 2024 using the Steam API and contains all the data necessary to find existing genre combinations on Steam. To check exactly how up-to-date this data set is, I checked the number of games under some tags on Steam and compared them to the numbers found in the data set, and the differences were around 40\%, which is unexpectedly high. However, games released in October 2024 can be found in the data set as expected with the correct release dates, indicating the data was truly acquired in or after October 2024. The explanation for such a large difference in the numbers could be explained by the ever-rising number of new games published each month on the platform, and the new tags applied to games during this two-month period. However, the ratio between the tag occurrences could not change significantly under such a short time. These data are in CSV format which is mostly used by spreadsheet editors such as Excel or Numbers, but can easily be read from script too.
+\section{Research question 1} % TODO: Come up with another name for this section
 
-Going through the data set and individually counting the times each tag occurs, it is easy to determine that Steam currently uses 447 tags and 121 genres. It can also be observed that tag occurrences, as seen in the figure \ref{figure:tags}, like many other data sets, seem to loosely follow Zipf's law \cite{li2002zipf}. Interestingly, some of the tags make little sense, like "Intentionally Awkward Controls" or "TrackIR", and do not represent a genre, but rather some other aspect of the game. There are a few tags like "Warhammer 40K" that solely indicate which franchise the game belongs to.
+% TODO: remind the reader to RQ1
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{images/tag-occurrences.png}
-    \caption{Tag occurrences}
-    \label{figure:tags}
-\end{figure}
+Before the true work on RQ1 started, during a few brainstorming sessions a few ideas for genre combinations that felt like they were still unexplored had already been written down to check out later. The most promising among these was the "Extraction Deckbuilder", which is a combination of the "Extraction Shooter" - without the shooter aspect - and "Deckbuilding" concepts. Extraction on its own does not exist as a separate tag on Steam yet. This mix proved to be unique after conducting the following research:
 
-On the other hand, the genre distribution in the figure \ref{figure:genres} seems unbalanced. The reason for that is that for some reason, 84 of the 121 genres are localized versions of others, and each appear less than 30 times. These genres can be safely discarded, as their occurrance times would not contribute too much to the other numbers.
+After reviewing the data set and going through the less-popular tags while filtering out those that do not represent a genre or sub-genre, still a lot of tags remained. There were 195 tags that appeared less than 1000 times in total. For comparison, the most used tag, "Singleplayer", appeared 72120 times. But we could go even lower, as there were 38 tags that less than a hundred games were tagged with. To limit the number of genre combinations to choose from, it seemed ideal to include at least one tag that has such a low occurrence. Most tags with low occurrence do not indicate genres, but rather specific game elements that the game includes, like "Fox", "Birds", "Dice", "Elf", and so on. Coincidentally, "Extraction Shooter" is one of the least used tags, the 33rd in the list counting from the back, with an occurrence of 84. Interestingly, at the time of writing, the number of games tagged with "Extraction Shooter" has already grown to 155, which is an 85\% increase compared to the data set, indicating that it is a trending tag (the occurrence of "Singleplayer" has only increased by 42\%).
 
-However, since Steam uses only a handful of genres to categorize games, these genres are vague. For this thesis, I will use Steam tags, as tags provide a much finer way to describe what genres the developed game prototype should belong to.
+Thus, using Extraction Shooter as a starting point is a good idea, and luckily when combining it with the Deckbuilding tag, there is not a single game in the data set that matches this combination. There is, however, one on Steam called Echo Chambers, but it does not have a release date yet, and based on its description and screenshots it severely differs from the type of game this thesis aims to explore. Therefore, the combination of the extraction and deck-building mechanics can be considered a truly new mix.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{images/genre-occurrences.png}
-    \caption{Genre occurrences}
-    \label{figure:genres}
-\end{figure}
 
-It is important to note that the author of the dataset also looked for genre combinations as seen in figure \ref{figure:genre-pairs}, but they only used combinations of two genres, while I was more interested in more complex mixtures. Furthermore, they only included tags were assigned to at least 900 games, and takes away almost half of the tags. For this thesis, I am interested in the other half of the tags, those that are used very rarely, but at the same time, clearly represent a genre or sub-genre. To extract exactly the data I needed, I had to write my own script.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{images/genre-pairs.png}
-    \caption{Most frequent genre pairs}
-    \label{figure:genre-pairs}
-\end{figure}
+\section{Defining Extraction Deckbuilder}
 
-\section{Research question 1}
+To paint a better picture of what exactly I mean by the term Extraction Builder, I will define each genre it is made out of.
 
-After reviewing the data set and going through the less-popular tags, filtering out those that do not represent a genre or sub-genre.
+% TODO: use gameplay patterns from the Wiki
 
+\subsection{Extraction Shooter}
+
+This type of game is a relatively new alteration of the Tactical Shooter genre, it was first seen in Escape from Tarkov\cite{escapeFromTarkov2017} in 2017. This kind of game is usually played in iterations called runs and features an open world that the player enters with some loot they have gathered in previous runs. During a run, the player has to explore and collect loot while fending off other players or NPCs (non-playable characters). At the end of a run, they have to reach an extraction point where they can safely leave the match with all the collected loot, adding it to their inventory outside the match. However, if the player dies during a run, all the loot that they have collected, as well as the equipment they have brought in will be lost forever. There are usually some twists, however, like a safe pocket that keeps its content upon death. These types of games fall under the Combat Games category in Crawford's list\cite{crawford1984art}, Action in Apperley's, and Shoot 'Em Up in Wolf's taxonomy (while also borrowing elements from the Collecting genre). Interestingly, Extraction Shooters do not fit Wolf's Escape genre, as it does not allow the player to fight back.
+
+
+
+\subsection{Deckbuilding}
+
+This genre works with playing cards and deck management, similar to some board games like Century: Spice Road. Players collect cards that they add to their collection, from which they assemble decks to play with. The rules that define exactly how the cards work and interact with each other are unique to each game, the genre does not define that part. The closest genre from Mark J. P, Wolf's taxonomy\cite{wolf2002genre} is Card Games, while Strategy from Apperley's\cite{apperley2006genre} more ambiguous categories, and Games of Chance in Crawford's earlier list\cite{crawford1984art}.
+
+
+
+\subsection{Extraction}
+
+The term "Extraction" has not been used officially as a genre on its own yet, it is a made-up genre for this thesis only. To put it simply, it contains every game element Extraction Shooter does, except those related to the Shooter part, making it a more general category. It could be combined with other major genres, like Platformer or Strategy, but in this thesis, it will be mixed with Deckbuilding. 
+
+% TODO: make the definition clearer
+
+To give a precise definition, extraction games involve some sort of resource collection and consist of multiple runs, which makes them similar to the Rogue-like genre. Players have two inventories: one is used outside the scope of individual runs (outer), and one that is used during the runs (inner). Players can transfer resources from the outer to the inner inventory outside the scope of the runs and they automatically transfer all resources in the other direction at the end of the runs. However, players may permanently lose all resources stored in their inner inventory upon death if other factors do not prevent this. A run ends by either dying or arriving at an extraction point, in which case the player transfers the resources into the outer inventory.
+
+There are a few existing video games that fit into the Extraction category, but are not extraction shooters. Deep Rock Galactic\cite{deepRockGalactic2018} for example, while containing some shooter elements, focuses more on collecting loot by mining and safely returning with it to the extraction point. In lethal Company\cite{lethalCompany2023} players have to explore a procedurally generated facility, safely extracting items, while surviving against enemies, without a serious focus on combat. However, while, for instance, Dome Keeper\cite{domeKeeper2022} definitely contains some extraction elements, it lacks the option for the permanent loss of loot.
+
+
+
+\subsection{Mixing Deckbuilding with Extraction}
+
+The resources in extraction games do not have a specific type, however, since Deckbuilders already work with cards, which can be considered a resource, it makes sense to use cards as the obtainable loot in Extraction Deckbuilders. Card loots become even more interesting with the fact that cards are the key gameplay elements of Decbuilders, so gaining new cards can drastically change the gameplay while the run is in progress by allowing the player to immediately put the newly collected cards in use. On the other hand, making such a vital game element permanently losable is a risky move since players can easily get frustrated. But keep in mind that this is exactly what Extraction Shooters do, just instead of cards, those games have weapons and gear as the key resource. To allow the player to secure at least a small portion of the gathered loot, some options need to be provided, like the already mentioned safe pocket, or a system that in exchange for some in-game currency, ensures that an item will be kept if the player dies.
+
+In order to make an extraction game, the player needs to extract loot from somewhere. In general, this 'somewhere' could be a large open-world map similar to Tarkov\cite{escapeFromTarkov2017}, but for this thesis that would set the scope extremely high. A more reasonable option is to use an abstract 2D grid-like world that can still be large, but it is much easier to maintain due to its simplicity. To achieve the feel of a large-scale map, a procedural generation algorithm\cite{van2013procedural} could be used to dynamically create the map as the player progresses onward. To keep things contained and manageable, the algorithm could place predesigned rooms next to each other, connecting them with doors, just like in Enter the Gungeon\cite{enterTheGungeon2016} or The Binding of Isaac\cite{theBindingOfIsaacRebirth2014}, greatly saving development time.
+
+
+
+\subsection{Further ideas}
+
+Apart from the essential game elements of Extraction Deckbuilders, a currency system could be used in the upcoming game prototype to make room for some permanent progression in between runs. Currency could be a type of loot that can be spent on upgrades such as the safe pocket, and it is always kept (at least partially), no matter if the player completed the run successfully. Otherwise, if the player lost a run and did not have any means to keep part of the loot and they would also lose the currency, they might lose the motivation to continue.
+
+Using cards for as many actions as possible could be another interesting twist. This would include movement, opening chests or doors, picking up items, and so on. If the player cannot play a movement card for any reason, they are simply unable to move. However, this rule could greatly limit the player and might turn out to be annoying, so some basic actions should not be tied to playing the right cards. One way of dealing with this is to use multiple hands and decks, one for each category of action: Movement, Combat and Interaction. Each deck could have their own cards and rule sets, for example the Movement deck can not be depleted, while the Combat deck needs a rest to reshuffle, and the cards from the Interaction deck are permanently discarded upon use. However, it should be kept in mind that multiple decks might easily multiply the complexity of the game, a scenario which, in the case of this thesis, should be avoided.
+
+Cards could be played for relatively free, like in Balatro\cite{balatro2024} or Gwent\cite{gwent2018}, or for a specific cost, usually called mana, like in Hearthstone\cite{hearthstone2014} or Marvel Snap\cite{marvelSnap2022}. For Extraction Shooter, using mana is a better fit because the game prototype will include a turn based combat system, and mana is perfect for limiting the number of actions the player can take per turn. So a system needs to be implemented that determines how much mana the player has each turn, as well as how much mana each card costs.
+
+The most important type of cards will be combat cards, as fighting enemies is the primary way of getting loot in a lot of games. For an engaging combat system, there should be a variety of actions a player can make during a fight. These could include swinging a sword, holding a shield, casting a spell, drinking potions, and maneuvering around the enemy. Furthermore, the player's character should have basic stats like health, armor and attack strength, and some more complex ones such as accuracy, critical strike chance and dodge chance. Stat values could be altered by various factors including their initial value, modified by equipment, cast spells, used potions and other buffs and debuffs.
