@@ -1,0 +1,32 @@
+\chapter{Discussion} \label{Chapter:Discussion}
+
+
+
+\section{Limitations}
+
+
+
+\subsection{State machines}
+
+A popular approach to designing complex enemy behavior is to use state machines. Most games, such as Elden Ring\cite{eldenRing2022} and Hearthstone\cite{hearthstone2014}, use something close to state machines to keep track of the current state of every game object. State machines make it easier to implement different behaviors based on the state in which a game object is currently in. For example, a boss in Elden Ring\cite{eldenRing2022} usually has many repeating attack patterns that without a state machine would require tons of if statements, checking for the current player distance, what the previous attack was, or what phase the boss is in. However, with a state machine, different behaviors are well divided and do not rely on each other as the logic of state transitions is managed separately. This results in a more maintainable and scalable code in the long run.
+
+This game could have also used such a system, but time constraints did not allow it to. Additionally, the extra complexity by implementing state machines was not necessary, since the logic of most enemies (except the Ranger and the Exterminator) consists only of these three states:
+
+\begin{itemize}
+  \item Idle (stand still, check if the player is in view)
+  \item Follow player (while in view)
+  \item If close enough, attack player
+\end{itemize}
+
+
+
+\subsection{Enemy actions visualization}
+
+In the early version of the prototype, cards that target an area or an enemy were not using any indicator as to where their casting range or damaging area were. These numbers were only shown in their description and nowhere else, so some playtesters were rightfully confused when they did not hit the enemy they were aiming at. As a quality of life improvement, colored area and range markers were implemented that were displayed while aiming with a selected card.
+
+A similar feature was planned for showing where enemy attacks will land in the enemy's next turn, giving the player a clear warning about what tiles are considered dangerous. This would have also made it clearer how certain enemies work, as during the playtests the Ranger was especially pointed out to have confusing logic. However, due to time limitations, this idea was scrapped from the prototype, as this extra functionality would also have required a complete rework of enemy logic to allow for a way to predict their next attack.
+
+
+
+\subsection{Accessibility}
+

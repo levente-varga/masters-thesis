@@ -1,0 +1,172 @@
+\chapter{Planning} \label{Chapter:Planning}
+
+
+This chapter discusses the process of selecting a genre combination to work with, and then explores ideas for possible game mechanics.
+
+
+\section{Coming up with a genre combination}
+
+This chapter will explain the process behind finding an answer to the first research question, which is "\researchQuestionOne".
+
+Before real work on RQ1 started, during a few brainstorming sessions, a few ideas for genre combinations that felt like they were still unexplored had already been written down to check out later. The most promising among these was the "Extraction Deckbuilder", which is a combination of the "Extraction Shooter" - without the shooter aspect - and "Deckbuilding" concepts. Extraction on its own does not exist as a separate tag on Steam yet. This mix proved to be unique after conducting the following research:
+
+After reviewing the data set discussed in chaper \ref{Chapter:Theory} and going through the less popular tags while filtering out those that do not represent a genre or sub-genre, still a lot of tags remained. There were 195 tags that appeared less than 1000 times in total. For comparison, the most used tag, "Singleplayer", appeared 72120 times. But we could go even lower, as there were 38 tags with which less than a hundred games were tagged. To limit the number of genre combinations to choose from, it seemed ideal to include at least one tag that has such a low occurrence. Most tags with low occurrence do not indicate genres, but rather specific game elements that the game includes, like "Fox", "Birds", "Dice", "Elf", and so on. Coincidentally, "Extraction Shooter" is one of the least used tags, the 33rd in the list counting from the back, with an occurrence of 84. Interestingly, at the time of writing, the number of games tagged with "Extraction Shooter" has already grown to 155, which is an 85\% increase compared to the data set, indicating that it is a trending tag (the occurrence of "Singleplayer" has only increased by 42\%).
+
+Thus, using Extraction Shooter as a starting point is a good idea, and luckily when combining it with the Deckbuilding tag, there is not a single game in the data set that matches this combination. There is, however, one on Steam called Echo Chambers, but it does not have a release date yet, and based on its description and screenshots it severely differs from the type of game this thesis aims to explore. Therefore, the combination of extraction and deck-building mechanics can be considered a truly new mix.
+
+
+
+\section{Defining Extraction Deckbuilder}
+
+To better understand what exactly the term Extraction Builder means, each genre of which it consists of will be defined using definitions of gameplay design patterns \cite{gameplayDesignPatterns}.
+
+
+
+\subsection{Deckbuilding}
+
+This genre works with collecting and playing cards and deck management, similar to some board games like Century: Spice Road. Players can acquire cards that they add to their collection, from which they assemble decks to play with. The genre does not define the rules that imply exactly how the cards work and interact with each other, they are unique to each game. Some, like Balatro \cite{balatro2024}, are based on traditional playing cards, while others like Hearthstone \cite{hearthstone2014} or Gwent \cite{gwent2018} use their own set of cards. It is quite common in deckbuilders to have the ability to alter some card properties. In Balatro, players can add special abilities to cards, and even modify their suite or value. Some cards in Hearthstone modify their effects based on which cards the player has previously played, holds in their hands, or has in their deck. 
+
+The closest genre from Mark J. P, Wolf's taxonomy\cite{wolf2002genre} is Card Games, while Strategy from Apperley's\cite{apperley2006genre} more ambiguous categories, and Games of Chance in Crawford's earlier list\cite{crawford1984art}.
+
+The gameplay design patterns used in deckbuilders are the following:
+
+\begin{itemize}
+    \item \textbf{Cards}: the main \textbf{Resource}, with unique \textbf{Abilities} or some other game-altering effects.
+    \item \textbf{Card building}: the modification of cards in various ways. Although not all deckbuilders utilize this pattern, it can be observed in Hearthstone\cite{hearthstone2014} and Balatro\cite{balatro2024}.
+    \item \textbf{Decks}: a collection of cards that through shuffling, introduces the \textbf{Randomness} and \textbf{Luck} patterns.
+    \item \textbf{Deck Building}: putting newly acquired cards in the player's deck for it to be drawn later. The core gameplay pattern of deckbuilders.
+\end{itemize}
+
+
+
+\subsection{Extraction Shooter}
+
+This type of game is a recent alteration of the Tactical Shooter genre. Tactical Shooters, and Shooters in general, focus on using firearms as the main tool for destroying enemies or other players. One of the most popular Shooter sub-genres is FPS (First Person Shooter), where players control the game from their character's point of view. The Extraction Shooter genre first appeared in Escape from Tarkov\cite{escapeFromTarkov2017} in 2017. This kind of game is usually played in iterations called runs and features an open world that the player enters with some loot they have gathered in previous runs. During a run, the player has to explore and collect loot while fending off other players or NPCs (non-playable characters). At the end of a run, they have to reach an extraction point where they can safely leave the match with all the collected loot, adding it to their inventory outside of the match. However, if the player dies during a run, all the loot that they have collected, as well as the equipment they have brought in, will be lost forever. However, there are usually some twists, such as a safe pocket that keeps its content upon death. This type of game falls under the Combat Games category in Crawford's list\cite{crawford1984art}, Action in Apperley's, and Shoot 'Em Up in Wolf's taxonomy (while also borrowing elements from the Collecting genre). Interestingly, Extraction Shooters do not fit Wolf's Escape genre, as it does not allow the player to fight back.
+
+
+
+\subsection{Extraction}
+
+The term "Extraction" has not been used officially as a genre on its own yet, it is a made-up genre for this thesis only. To put it simply, it contains every game element Extraction Shooter does, except those related to the Shooter part, making it a more general category. It could be combined with other major genres, like Platformer or Strategy, but in this thesis, it will be mixed with Deckbuilding. 
+
+The definition of extraction games is the following: 
+
+\textit{Run-based games where players collect resources and must transport them to extraction points to retain them.}
+
+Furthermore, players manage two inventories: an inner inventory used during runs and an outer inventory for permanent progression. Players can transfer loot between inventories outside runs. A run ends either by reaching an extraction point or by dying, which results in the permanent loss of loot in the inner inventory.
+
+There are a few existing video games that fit into the extraction category, but are not extraction shooters. Deep Rock Galactic\cite{deepRockGalactic2018} for example, while containing some shooter elements, focuses more on collecting loot by mining and safely returning it to the extraction point. In lethal Company\cite{lethalCompany2023} players have to explore a procedurally generated facility, safely extracting items, while surviving against enemies, without a serious focus on combat. Even Soulslike games can be considered closely related to extraction games, where bonfires serve as extraction points and the soul is the loot, but the loot is not lost permanently if the player manages to retrieve it before dying for a second time. However, while, for example, Dome Keeper\cite{domeKeeper2022} definitely contains some extraction elements, it completely lacks the option of permanent loss of loot.
+
+The core gameplay design patterns include the following:
+
+\begin{itemize}
+    \item \textbf{Loot}: The collectible valuables that need to be extracted. Usually some kind of \textbf{Resource}, \textbf{Equipment} or currency.
+    \item \textbf{Inventories}: The storage in which the player keeps the collected loot.
+    \item \textbf{Rescue}: The closest pattern to extraction, rescuing someone or something (loot) that is otherwise not free to move by its own will.
+    \item \textbf{Enemies}: NPCs that are trying to stop the player from extracting loot, usually by attempting to kill them.
+    \item \textbf{Replayability}: Due to the run-based nature of extraction games, they are highly replayable, and each run usually differs from the last.
+    \item \textbf{Death Consequences}: Dying results in the collected loot being lost.
+\end{itemize}
+
+
+
+\subsection{Mixing Deckbuilding with Extraction}
+
+The resources in extraction games do not have a specific type, however, since Deckbuilders already work with cards, which can be considered a resource, it makes sense to use cards as the obtainable loot in Extraction Deckbuilders. Card loots become even more interesting with the fact that cards are the key gameplay elements of Decbuilders, so gaining new cards can drastically change the gameplay while the run is in progress by allowing the player to immediately put the newly collected cards in use. On the other hand, making such a vital game element permanently losable is a risky move since players can easily get frustrated. But keep in mind that this is exactly what Extraction Shooters do, just instead of cards, those games have weapons and gear as the key resource. To allow the player to secure at least a small portion of the gathered loot, some options need to be provided, like the already mentioned safe pocket, or a system that in exchange for some in-game currency, ensures that an item will be kept if the player dies.
+
+In order to make an extraction game, the player needs to extract loot from somewhere. In general, this 'somewhere' could be a large open-world map similar to Tarkov\cite{escapeFromTarkov2017}, but for this thesis that would set the scope extremely high. A more reasonable option is to use an abstract 2D grid-like world that can still be large, but it is much easier to maintain due to its simplicity. To achieve the feel of a large-scale map, a procedural generation algorithm\cite{van2013procedural} could be used to dynamically create the map as the player progresses. To keep things contained and manageable, the algorithm could place predesigned rooms next to each other, connecting them with doors, just like in Enter the Gungeon\cite{enterTheGungeon2016} or The Binding of Isaac\cite{theBindingOfIsaacRebirth2014}, greatly saving development time.
+
+In Extraction Deckbuilders, the gameplay design patterns of Deckbuilders and Extraction games get mixed too, resulting in the following list:
+
+\begin{itemize}
+    \item \textbf{Cards} become the \textbf{Loot} and \textbf{Resource}.
+    \item \textbf{Inventories} become \textbf{Decks}.
+\end{itemize}
+
+
+
+\subsection{Further ideas}
+
+Apart from the essential game elements of Extraction Deckbuilders, a currency system could be used in the upcoming game prototype to make room for some permanent progression in between runs. The currency could be a type of resource that can be spent on upgrades such as the safe pocket, and is always kept (at least partially), regardless of whether the player completed the run successfully. Otherwise, if the player lost a run and did not have any means to keep part of the loot and they would also lose the currency, they might lose the motivation to continue.
+
+Using cards for as many actions as possible could be another interesting twist. This would include movement, opening chests or doors, picking up items, etc. If the player cannot play a movement card for any reason, they are simply unable to move. However, this rule could greatly limit the player and might turn out to be annoying, so some basic actions should not be tied to playing the right cards. One way of dealing with this is to use multiple hands and decks, one for each category of action: Movement, Combat, and Interaction. Each deck could have their own cards and rule sets, for example the Movement deck can not be depleted, while the Combat deck needs a rest to reshuffle, and the cards from the Interaction deck are permanently discarded upon use. However, it should be kept in mind that multiple decks might easily multiply the complexity of the game, a scenario which, in the case of this thesis, should be avoided.
+
+Cards could be played relatively free, as in Balatro\cite{balatro2024} or Gwent\cite{gwent2018}, or for a specific cost, usually called mana, like in Hearthstone\cite{hearthstone2014} or Marvel Snap\cite{marvelSnap2022}. For Extraction Deckbuilder, the use of mana is a better fit because the game prototype will likely include a turn-based combat system, and mana is perfect for limiting the number of actions the player can take per turn. So a system needs to be implemented that determines how much mana the player has each turn, as well as how much mana each card costs.
+
+The most important type of card will be combat cards, as fighting enemies is the main way to get loot in many games. For an engaging combat system, there should be a variety of actions that a player can take during a fight. These could include swinging a sword, holding a shield, casting a spell, drinking potions, and maneuvering around the enemy. Furthermore, the player should have basic stats such as health, armor, and attack strength, and some more complex ones such as accuracy, critical strike chance, and dodge chance. Stat values could be altered by various factors including their initial value, modified by equipment, cast spells, used potions, and other buffs and debuffs.
+
+
+
+\section{Prioritization methods}
+
+Developing software in general requires serious planning and task prioritization to ensure that available resources and time are properly used. Doing so increases the likelihood of the project being finished in time and that its core components are developed first.
+
+
+
+\subsection{Moscow prioritization} \label{section:Moscow}
+
+The tasks are divided into four categories using the Moscow prioritization method. Each category indicates the importance of its tasks. Tasks in the \textbf{Must have} category need to be implemented for the game to be considered finished. The \textbf{Should have} category contains tasks that are intended to be part of the finished product, but are not essential. In \textbf{Should have}, the likelihood that the tasks are included is low, they would add to the experience but are far from necessary. And finally, \textbf{Won't have} is for the tasks that are no way to be implemented, at least for this iteration of the project.
+
+The following is a list of the most important features that come or do not come with the prototype, categorized using the Moscow method.
+
+\subsubsection{Must have}
+
+\begin{itemize}
+    \item \textbf{Game world}: A set of 2D tiles representing a top-down world where the player and other game objects can exist and perform actions. Contains the extraction locations, too.
+    \item \textbf{Cards}: Collectible cards with abilities and other properties such as cost. Different cards can be played differently; some will require a target location or enemy to be picked in the game world, while others will be playable regardless of a target. 
+    \item \textbf{Set of rules}: Rules that dictate how the game works, when the player draws cards, how the cards interact, and how enemies behave.
+    \item \textbf{Playable character}: The character that the player controls in the game world.
+    \item \textbf{Enemies}: Non-playable characters with unique behaviors, trying to kill the player, controlled by a simple algorithm.
+    \item \textbf{Inventory or Deck}: Some way of storing and organizing cards. An outer and inner inventory are needed.
+    \item \textbf{Combat system}: Some sort of logic for the player to damage enemies and for enemies to damage the player.
+\end{itemize}
+
+\subsubsection{Should have}
+
+\begin{itemize}
+    \item \textbf{Menu}: The first thing players see when launching the game should be a main menu, where they can enter the game world, adjust some settings, and exit.
+    \item \textbf{Sprites}: 2D image files to represent game objects. Makes the game more pretty, but does not add functionality.
+    \item \textbf{User interface}: Some basic way to show the stats of the player and the enemies they are currently fighting. 
+    \item \textbf{Fog of war}: The entire game world should not be shown to the player initially. Instead, it should be revealed as they move around.
+    \item \textbf{More interactable objects}: Doors, chests, and other things that the player can interact with. Extraction locations are one such object, and unlike the others, it is a must-have.
+\end{itemize}
+
+\subsubsection{Could have}
+
+\begin{itemize}
+    \item \textbf{Sound effects}: Most interactions should have their own sound. Improve immersion, give audio feedback to actions, and make it easier to distinguish between events.
+    \item \textbf{Status effects}: Additional game mechanics seen in many games, would include poison, fire, frost, etc. They would be applied to enemies using special cards, and the player could also receive these effects from enemies. Status effects could interact with each other.
+    \item \textbf{Large variety}: An increased variety of enemies, cards, and loot. Would improve replayability, but it is not necessary to showcase the novel game mechanics.
+    \item \textbf{Minimap}: A miniature representation of the game world to aid player coordination.
+    \item \textbf{Procedurally generated world}: Generating the world on the go is a great way to make it feel large-scale. However, it would most likely require too much effort and would not fit the needs of the thesis.
+    \item \textbf{Animations}: Sprites, some text, and the movement of game objects could be animated if time allows.
+    \item \textbf{Save}: The genre is heavily based on long-term progression; therefore, the game should save and load the game files. However, implementing it might not be necessary to test the core mechanics of the game during a short testing session.
+\end{itemize}
+
+\subsubsection{Won't have}
+
+\begin{itemize}
+    \item \textbf{Performance optimizations}: This would include dynamic loading of the game world, enemies, objects, and items based on the position of the player. It would only be necessary if scalability were a key goal. However, for the prototype, it is negligible. Instead, every game object will be loaded and handled together.
+    \item \textbf{Tutorial}: A shorter version of the main gameplay loop with explanations. It would require implementing features that could be told verbally for game testers.
+    \item \textbf{Music}: While it would greatly improve immersion, for the game prototype it is unnecessary.
+    \item \textbf{Story}: To show how the game mechanics work, a story is not required.
+    \item \textbf{Key mapping}: An accessibility setting that would allow the player to freely change the keyboard layout.
+    \item \textbf{Multi resolution support}: The game will be only designed for the standard 16:9 aspect ratio, which usually means 1920 by 1080 screen resolution.
+    \item \textbf{Cross platform support}: The target platform will be Windows. Other platforms will not be supported at this time.
+    \item \textbf{Achievements}: This would be a nice way to motivate players to explore every corner of the game. However, implementing them takes time and should be omitted from the prototype.
+    \item \textbf{Localization}: The game will be developed only in English.
+\end{itemize}
+
+
+
+\section{Concept} \label{section:concept}
+
+The initial design question before starting the development of the prototype is what kind of game is the best to test the mix of the extraction and deck-builder genres. Extraction shooter games are usually First Person Shooter games that use 3D graphics, while most card games are 2D with a top-down view. After careful consideration, I chose a top-down approach with a grid-based 2D world to make development as easy as possible. Using 2D removes the need for 3D assets that tend to be more tedious to work with and also makes it easy to implement the game logic. 
+
+The open world where each run takes place is a procedurally generated dungeon filled with rooms and corridors connecting them. Each room can contain enemies, chests, and extraction points. To make the game 
+
+Although the main progression factor in extraction games comes from the collected and extracted loot, some permanent progression between runs (meta progression) is also crucial. The exact method chosen for this initially was meant to be the introduction of card types that can be spent on player stat upgrades (such as max health boost, increased hand size, and extended vision), similarly to how players can spend gold in Vampire Survivors to unlock permanent bonuses. However, this type of progression does not fit the deck-builder theme of the game (since spendable cards are really just a currency in disguise). Instead, the chosen meta-progression method became card upgrades: Three identical cards can be combined into a more powerful variant. Upgraded cards can also be upgraded further, up to a set limit.
+
+To prevent players from losing everything when they die during a run, Escape from Tarkov uses two mechanics: safe pouches whose contents can be recovered, and insurance, which can be applied to any item in the player's inventory for a price. I will use the latter approach, but instead of putting a price tag on this feature (I want to prevent introducing a currency just for this purpose), I want to make insured cards extremely rare. Every card dropped from slain enemies and opened chests will have a small chance of being insured. Although this technically makes it possible for the player eventually to enter a run with only protected cards in their deck, the cards collected during the run can still be lost from the inventory.
+
+For the game to have an ending, there will be a final boss that the player must defeat to finish the game. Exactly one boss will be generated inside each dungeon. Although this makes it possible to encounter it on the first run, it will be so powerful that the player has virtually no chance of defeating it early on.

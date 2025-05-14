@@ -1,0 +1,60 @@
+\chapter{Methodology} \label{Chapter:Methodology}
+
+This chapter describes the core problem and how this research plans to find answers to it.
+
+% TODO: Create a separate game testing section
+
+
+
+\section{Approach}
+
+\textbf{Planning:} To find answers to RQ1, the thesis will begin with a short research and experimentation where genre combinations - that currently do not exist - will be explored and analyzed to determine whether they could function well together. To help with this research, Steam's video game database will be used, as it contains most modern video games and their necessary details. As a result of this part, a genre combination will be chosen with which the thesis can continue to its second part.
+
+\textbf{Implementation:} To answer RQ2, the project will involve the design and iterative implementation of a game prototype that combines all the chosen game genres from Planning and their corresponding elements and game design patterns. 
+
+During the project, between iterative cycles, the game prototype will be regularly tested on small player groups to gain instant feedback that could help the development stay on track.
+
+At the end of the project, a formal game testing session will be conducted that will include presenting the game prototype to potential players and letting them play with it for a short time while being guided and supervised. At the end of the session, using a feedback form and verbal questions\cite{björk2015Interviews}, anonymous data will be collected that will show how the combined gameplay design patterns work together and what the players think of their experience. Additionally, the game will be internally evaluated using the extended version of the GameFlow model\cite{sweetser2017gameflow}.
+
+Finally, a data analysis will be carried out on the feedback collected during the tests. This involves data collected from surveys, but also statistical data from the game itself that can be visualized using various methods\cite{björk2015DataVisualization}. 
+
+Furthermore, during the thesis, regular meetings will be conducted with the project supervisor Natasha Mangan to discuss progress, deal with any problems at hand and plan the next steps.
+
+
+
+\section{Tools}
+
+To create the game prototype, preferably an existing game engine is used. As discussed in section \ref{Section:GameDevelopment}, there are several free-to-use game engines available, such as Unity, Unreal Engine, and Godot, just to name some of the largest. There are many tutorials, guides, and documentation available online for all three game engines. For this thesis, Godot will be used, because it is completely free, easy to learn, lightweight, and user-friendly, and it packs the necessary features for the intended game prototype.
+
+Godot uses its own scripting language called GDScript, which is close to Python. However, in this thesis, Godot Mono will be used, which works with C\# instead, a much more widely used language.
+
+To keep the code organized and secure, GitHub, a Git version tracking system, will be used. This way changes in the code can be tracked, and if anything goes wrong, it is possible to revert back to a previous version.
+
+
+
+\section{Time plan}
+
+The table below contains all the planned deadlines. Although this is a 30-credit master's thesis project, the time span is longer than the course schedule would suggest, because the work was started earlier.
+
+\begin{center}
+    \begin{tabular}{ l l l l }
+        \textbf{Task}                   & \textbf{Start} & \textbf{End} & \textbf{Length} \\
+        Detailed literature review      & December 1     & January  31  & 9 weeks         \\
+        Exploring genre combinations    & January 1      & January 31   & 4 weeks         \\
+        Developing the game prototype   & January 15     & April 1      & 10 weeks        \\
+        Development testing             & February 1     & April 1      & 8 weeks         \\
+        Game testing                    & April 1        & April 15     & 2 weeks         \\
+        Reacting to feedback            & April 15       & April 26     & 2 weeks         \\
+        Finishing up the Final Report   & April 29       & May 31       & 5 weeks         \\
+    \end{tabular}
+\end{center}
+
+
+
+\section{Ethical considerations}
+
+Anonymous feedback data will be collected during playtests. All playtesters will be informed about this in advance. Participation in the playtests will be voluntary and the participants can opt out at any time if they do not want to continue the playtest.
+
+% Accessibility
+
+Player accessibility must also be taken into consideration. This means using a color palette that can be easily distinguished by players with color blindness, supporting multiple controller types, and preferably re-mapping buttons. However, this thesis can focus only on so many things. Paying attention to every small detail, including accessibility, is not the top priority right now, as the main goal is to check whether the new game type works or not. If it does work, then the game can be extended with various accessibility features in the future.
