@@ -4,6 +4,7 @@
 
 \section{Limitations}
 
+This section lists some areas that were cut from the final prototype in order to reduce the scope and save time. Most of these features are planned to be implemented in future versions.
 
 
 \subsection{State machines}
@@ -20,13 +21,36 @@ This game could have also used such a system, but time constraints did not allow
 
 
 
-\subsection{Enemy actions visualization}
+\subsection{Enemy intel}
 
-In the early version of the prototype, cards that target an area or an enemy were not using any indicator as to where their casting range or damaging area were. These numbers were only shown in their description and nowhere else, so some playtesters were rightfully confused when they did not hit the enemy they were aiming at. As a quality of life improvement, colored area and range markers were implemented that were displayed while aiming with a selected card.
+In the early version of the prototype, cards that target an area or an enemy were not using any indicator as to where their casting range or damaging area were. These numbers were only shown in their description and nowhere else, so some playtesters were rightfully confused when they did not hit the enemy they were aiming at. As a quality of life improvement, colored area and range markers were implemented that are displayed when aiming with a selected card.
 
-A similar feature was planned for showing where enemy attacks will land in the enemy's next turn, giving the player a clear warning about what tiles are considered dangerous. This would have also made it clearer how certain enemies work, as during the playtests the Ranger was especially pointed out to have confusing logic. However, due to time limitations, this idea was scrapped from the prototype, as this extra functionality would also have required a complete rework of enemy logic to allow for a way to predict their next attack.
+A similar feature was planned that would have shown where enemy attacks will land in the enemy's next turn, giving the player a clear warning about what tiles are considered dangerous. This would have also made it easier to understand how certain enemies work, as during the playtests the Ranger was especially pointed out to have confusing logic. However, due to time limitations, this idea was scrapped from the prototype, as it would also have required a complete rework of enemy behaviors to allow for a way to predict their next attack. Instead, players are left to discover each enemy's attack patterns.
+
+A feature that would have allowed the player to inspect an enemy by clicking on it, gaining a detailed overview of its logic, stats, and drop rates, was also removed from the scope.
+
+
+
+\subsection{Variety}
+
+Having a large selection of cards is essential for deck-builder games. Collecting all the different cards can be a great motivator for players, making the game replayable. However, with great car variety comes a huge number of tasks: designing each card's logic, implementing, and then balancing it. To keep the scope of the prototype appropriate, the variety was classified as low priority.
+
+Dungeon crawlers are also known to have numerous enemy types to keep traversing the dungeon exciting. For similar reasons, the enemy variety was also reduced.
+
+The dungeon generator algorithm is also considerably simple, as it only generates rectangular rooms with a tight maze connecting them. There are no special rules for rooms with unique shapes, closed regions, or areas with a different style.
+
+There were plans to extend the algorithm so that it would generate rooms without any entrance, making it only accessible using Teleport. Furthermore, rooms containing bonfires or ladders would have been more likely to be closed behind doors on higher difficulties, making the Wooden Key card viable in the late game.
+
+
+
+\subsection{Tutorial}
+
+Having a tutorial was ruled out during the process of writing down the concept for the game. However, back then the exact method used for the test was not yet selected. Later, it turned out that the testing will take place entirely online, and players would need to learn the rules of the game on their own. For that purpose, a short tutorial would have been the best option, but there was not enough time left to start working on a proper introductory level. The only feature resembling a tutorial that was implemented was an indicator that only shows up when the player first starts dragging a card from hand during a run, telling the player where to drag-and-drop a card to play or discard it.
+
+As a replacement, a help panel, accessible from the pause menu, was included that describes the basic rules and concepts of the game with additional helpful tips. Furthermore, a text box was added to the main menu screen with information about the playtest and how to access the help menu. Most of this information was also included on the game's itch.io page.
 
 
 
 \subsection{Accessibility}
 
+As stated in section \ref{section:concept}, accessibility had a low priority throughout the project to save as much time as possible and instead shift the focus on making the combination of the genres work.

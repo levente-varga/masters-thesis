@@ -10,7 +10,7 @@ During the early stages of development, I conducted gameplay presentations, wher
 
 \subsection{Early in-house tests}
 
-When the game reached a state in which it was considered playable having a fully functional gameplay loop, I started conducting in-house tests with friends. I let them play the existing part of the game without any prior explanations and watched how they explored the controls and tasks. From time to time I added comments on a certain feature missing when the player was approaching its intended place (i.e., extraction points were already present in the generated map but were not functional). The first of these tests were using a version of the game with limited card and enemy variation, horrible balancing, and the complete lack of meaningful meta-progression. Since the game was far from its intended state, the true goal of these tests was only to gain more early feedback about whether the core concept of the game is functional and can be built upon. Most of the reactions I received were about the lack of variety in the game, which was naturally expected. Suggestions were made to add more content and variety to the dungeon generation method, but in general, everyone thought that the combination of the extraction and deckbuilder genres was a unique and viable idea.
+When the game reached a state in which it was considered playable having a fully functional gameplay loop, I started conducting in-house tests with friends. I let them play the existing part of the game without any prior explanations and watched how they explored the controls and tasks. From time to time I added comments on a certain feature missing when the player was approaching its intended place (i.e., extraction points were already present in the generated map but were not functional). The first of these tests were using a version of the game with limited card and enemy variation, terrible balancing, and the complete lack of meaningful meta-progression. Since the game was far from its intended state, the true goal of these tests was only to gain more early feedback about whether the core concept of the game is functional and can be built upon. Most of the reactions I received were about the lack of variety in the game, which was naturally expected. Suggestions were made to add more content and variety to the dungeon generation method, but in general, everyone thought that the combination of the extraction and deck-builder genres was a unique and viable idea.
 
 \subsection{Advanced in-house tests}
 
@@ -34,6 +34,18 @@ After making sure that every part of the game was functional and thoroughly test
 
 To make the test more accessible, testers were not required to complete a full playthrough of the game, as it would likely have taken multiple hours. Instead, they were asked to try to play the game as long as they could and then fill out the feedback form. During internal tests, the average time it takes to beat the game was estimated to be around two hours, but this result was achieved by continuously guiding the players when they felt stuck or did not understand a rule in the game.
 
-Three days after the first demo version was released, I decided to implement an overhaul of the workbench menu that would make upgrading cards slightly faster. Instead of dragging cards from the list container over to the upgrade slots, they could simply click on a card to make it instantly jump to the first free slot. Similarly with the upgraded card: clicking on it puts it back into the list. This small enhancement made the upgrade process significantly faster, and thus likely reduced the total time it takes to beat the game, as it was shown during internal tests that card upgrades take up a considerable part of the gameplay loop.
 
-Another correction was made in the 1.2 patch. Previously, the card sorting algorithm did not take into account whether a card was protected or not, and as a result, the order of protected and unprotected cards, which were otherwise identical, was undefined. This issue was caused due to a missing comparison between the protected flag of the card class. After the update, the protected cards were sorted ahead of others.
+
+\subsubsection{Hotfixes}
+
+Three days after the original demo version was released, a quality-of-life feature was added to the workbench menu as the 1.1 hotfix patch, which made upgrading cards slightly faster. Instead of dragging cards from the list container over to the upgrade slots, they could simply click on a card to make it instantly jump to the first free slot. Similarly with the upgraded card: clicking on it puts it back into the list. This small enhancement made the upgrade process significantly faster, and thus likely reduced the total time it takes to beat the game, as it was shown during internal tests that card upgrades take up a considerable part of the gameplay loop.
+
+Another correction was made in the 1.2 patch. Previously, the card sorting algorithm did not take into account whether a card was protected or not, and as a result, the order of protected and unprotected cards, which were otherwise identical, was undefined. This issue was caused due to a missing comparison between the protected flag of the card class. After the update, the protected cards were sorted ahead of others. Additionally, the previous patch was not thoroughly tested due to its quick release, so it shipped with a bug that could be exploited to duplicate cards using the workbench. This issue was also resolved.
+
+Finally, a fix was implemented in the 1.3 version that solved a critical issue introduced also with the 1.1 patch. When the player were to click on a card in the hand during a run without starting to drag it, the game would enter an unresponsive state due to a wrongly set Boolean flag, and would stay that way until a card is properly played or discarded.
+
+
+
+\subsubsection{Feedback}
+
+\todo{Finish after playtest is concluded}
